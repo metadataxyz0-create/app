@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>+888 0888 8880 – Fragment</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :root {
+    --page-bg:            #1a2026;
+    --header-bg:          #212932;
+    --search-bg:          #242e38;
+    --btn-blue:           #248bda;
+    --block-bg:           #212a33;
+    --block-head:         #293440;
+    --footer-bg:          #111417;
+    --border:             #2a3848;
+    --text-primary:       #e8eef4;
+    --text-second:        #7b9ab5;
+    --text-muted:         #4a6478;
+    --link-blue:          #4d9ed8;
+    --badge-green:        #4db86a;
+    --badge-green-bg:     rgba(45,160,80,0.18);
+    --badge-green-border: rgba(45,160,80,0.35);
+  }
+
+  html, body { width: 100%; min-height: 100vh; overflow-x: hidden; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--page-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo-link {
+    display: flex; align-items: center; gap: 7px;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .logo-text {
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.09em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+  }
+  .search-wrap {
+    flex: 1; min-width: 0;
+    position: relative; display: flex; align-items: center;
+  }
+  .search-icon {
+    position: absolute; left: 9px;
+    color: var(--text-muted); pointer-events: none;
+    display: flex; align-items: center;
+  }
+  .search-input {
+    width: 100%;
+    background: var(--search-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 10px 7px 30px;
+    font-size: 12px; font-family: 'Roboto', sans-serif;
+    color: var(--text-second); outline: none;
+  }
+  .search-input::placeholder { color: var(--text-second); }
+  .hamburger {
+    flex-shrink: 0; cursor: pointer;
+    color: var(--text-second);
+    display: flex; padding: 4px; border-radius: 6px;
+  }
+
+  /* ── MAIN ── */
+  .main { width: 100%; padding: 16px 14px 80px; }
+
+  /* ── PHONE SECTION ── */
+  .phone-section { margin-bottom: 16px; }
+  .phone-number {
+    font-size: 24px; font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 7px;
+    display: block;
+  }
+  .claimed-badge {
+    display: inline-flex; align-items: center;
+    background: var(--badge-green-bg);
+    border: 1px solid var(--badge-green-border);
+    color: var(--badge-green);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 12px; font-weight: 500;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--block-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .card-header-bar {
+    background: var(--block-head);
+    padding: 10px 14px;
+    font-size: 12px; font-weight: 500;
+    color: var(--text-second);
+    border-bottom: 1px solid var(--border);
+  }
+  .card-body-pad { padding: 12px 14px; }
+  .card-body {
+    font-size: 13px; color: var(--text-second);
+    line-height: 1.65; margin-bottom: 10px;
+  }
+  .card-body strong { color: var(--text-primary); font-weight: 700; }
+
+  .ton-icon {
+    display: inline-flex; align-items: center;
+    vertical-align: middle; margin: 0 1px;
+    position: relative; top: -1px;
+  }
+  .ton-icon img { width: 13px; height: 13px; object-fit: contain; }
+
+  .how-link {
+    color: var(--link-blue); font-size: 13px;
+    text-decoration: none; display: inline-block;
+  }
+  .how-link:active { opacity: 0.7; }
+
+  /* Sell price row */
+  .sell-price-row {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
+  }
+  .sell-price-label { font-size: 12px; color: var(--text-muted); }
+  .sell-price-value {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 18px; font-weight: 700; color: var(--text-primary);
+  }
+  .sell-price-value img { width: 16px; height: 16px; object-fit: contain; }
+  .sell-price-usd { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+  /* ── BUY BUTTON ── */
+  .buy-btn {
+    display: block; width: 100%;
+    background: var(--btn-blue); color: #fff;
+    font-size: 15px; font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    border: none; border-radius: 12px;
+    padding: 15px 20px; cursor: pointer;
+    text-align: center; margin-bottom: 12px;
+    letter-spacing: 0.01em;
+    transition: opacity .15s, transform .1s;
+  }
+  .buy-btn:active { opacity: 0.85; transform: scale(.98); }
+
+  /* ── COLLECTIBLE CARD ── */
+  .collectible-card {
+    background: var(--block-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .collectible-header {
+    background: var(--block-head);
+    padding: 10px 14px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    gap: 8px;
+  }
+  .collectible-title  { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+  .collectible-number { font-size: 12px; color: var(--link-blue); flex-shrink: 0; }
+  .collectible-body {
+    padding: 12px 14px;
+    font-size: 13px; color: var(--text-second); line-height: 1.65;
+  }
+
+  /* ── SUBSCRIBE ── */
+  .subscribe-row { text-align: center; padding: 10px 0 20px; }
+  .subscribe-btn {
+    color: var(--link-blue); font-size: 13px;
+    background: none; border: none;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer; text-decoration: none;
+  }
+  .subscribe-btn:active { opacity: 0.7; }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-size: 17px; font-weight: 700;
+    color: var(--text-primary); margin-bottom: 10px;
+  }
+
+  /* ── TABLES ── */
+  .tbl-wrap {
+    border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    margin-bottom: 24px; width: 100%;
+  }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  thead tr { background: var(--block-head); }
+  th {
+    text-align: left; padding: 9px 10px;
+    font-size: 11px; font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 11px 10px; font-size: 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle; overflow: hidden;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr { background: var(--block-bg); }
+  tbody tr:active { background: #243040; }
+
+  /* Колонки таблицы */
+  .c-sale  { width: 28%; }
+  .c-date  { width: 36%; }
+  .c-buyer { width: 36%; }
+
+  .price-cell {
+    display: flex; align-items: center; gap: 4px;
+    font-weight: 700; color: var(--text-primary); white-space: nowrap;
+  }
+  .price-cell img { width: 13px; height: 13px; object-fit: contain; flex-shrink: 0; }
+
+  .date-cell  { color: var(--text-second); font-size: 11px; line-height: 1.4; }
+  .addr-link  {
+    color: var(--link-blue); font-size: 11px;
+    text-decoration: none; display: block;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .addr-link:active { opacity: 0.7; }
+  .transferred { font-weight: 700; color: var(--text-primary); font-size: 12px; }
+  .sold-price  { font-weight: 700; color: var(--text-primary); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--footer-bg);
+    border-top: 1px solid var(--border);
+    padding: 16px 14px;
+    display: flex; justify-content: center;
+    gap: 20px; flex-wrap: wrap;
+  }
+  footer a {
+    color: var(--text-muted); font-size: 12px;
+    text-decoration: none; font-family: 'Roboto', sans-serif;
+  }
+  footer a:active { color: var(--link-blue); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--block-head);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 20px; border-radius: 10px;
+    font-size: 13px; z-index: 9999;
+    transition: transform .25s ease;
+    white-space: nowrap; pointer-events: none;
+    box-shadow: 0 6px 24px rgba(0,0,0,.5);
+    max-width: 88vw; text-align: center;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TON icon replaced -->
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="logo-link" href="#">
+    <svg width="22" height="20" viewBox="0 0 44 40" fill="none">
+      <path d="M22 2L42 38H2L22 2Z" fill="white"/>
+      <path d="M22 12L35 38H9L22 12Z" fill="#212932"/>
+      <path d="M22 24L29 38H15L22 24Z" fill="white"/>
+      <rect x="2" y="38" width="40" height="2" rx="1" fill="white"/>
+    </svg>
+    <span class="logo-text">Fragment</span>
+  </a>
+  <div class="search-wrap">
+    <span class="search-icon">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    </span>
+    <input class="search-input" type="text" placeholder="Search phone num..." readonly>
+  </div>
+  <div class="hamburger" onclick="showToast('Menu')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6"  x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- Номер + Claimed -->
+  <div class="phone-section">
+    <span class="phone-number">+888 0888 8880</span>
+    <span class="claimed-badge">Claimed</span>
+  </div>
+
+  <!-- What is this -->
+  <div class="card">
+    <div class="card-header-bar">What is this?</div>
+    <div class="card-body-pad">
+      <p class="card-body">
+        Someone offered
+        <span class="ton-icon"><svg style="display:inline;vertical-align:middle;position:relative;top:-1px" height="13" viewBox="0 0 15 19" width="13" xmlns="http://www.w3.org/2000/svg"><path d="m1.74 4.5h11.51c.24 0 .44.2.44.44 0 .08-.02.15-.05.22l-5.46 9.9c-.24.43-.78.59-1.21.35-.15-.08-.27-.21-.36-.36l-5.26-9.9c-.12-.21-.04-.48.18-.6.07-.03.14-.05.21-.05zm5.76 10.67v-10.67z" fill="none" stroke="#4db2ff" stroke-width="1.5"/></svg></span>
+        <strong>580,000</strong> for your +888 0888 8880. If the price suits you, press "Accept the offer".
+      </p>
+      <a class="how-link" onclick="showToast('Fragment — Telegram number marketplace on TON')">How does this work?</a>
+    </div>
+
+    <!-- Цена продажи внутри карточки -->
+    <div class="sell-price-row">
+      <div>
+        <div class="sell-price-label">Sell Price</div>
+        <div class="sell-price-usd">~ $837,897</div>
+      </div>
+      <div class="sell-price-value">
+        <svg style="display:inline;vertical-align:middle" height="16" viewBox="0 0 15 19" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m1.74 4.5h11.51c.24 0 .44.2.44.44 0 .08-.02.15-.05.22l-5.46 9.9c-.24.43-.78.59-1.21.35-.15-.08-.27-.21-.36-.36l-5.26-9.9c-.12-.21-.04-.48.18-.6.07-.03.14-.05.21-.05zm5.76 10.67v-10.67z" fill="none" stroke="#4db2ff" stroke-width="1.5"/></svg>
+        580,000
+      </div>
+    </div>
+  </div>
+
+  <!-- Accept button -->
+  <button class="buy-btn" onclick="handleAccept()">Accept the offer</button>
+
+  <!-- Collectible Number -->
+  <div class="collectible-card">
+    <div class="collectible-header">
+      <span class="collectible-title">Collectible Number</span>
+      <span class="collectible-number">+888 0888 8880</span>
+    </div>
+    <div class="collectible-body">
+      This collectible number can be used to create a Telegram account not tied to a SIM card.
+    </div>
+  </div>
+
+  <!-- Subscribe -->
+  <div class="subscribe-row">
+    <button class="subscribe-btn" onclick="showToast('Subscribed!')">Subscribe to updates</button>
+  </div>
+
+  <!-- Ownership History -->
+  <div class="section-title">Ownership History</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="c-sale">Sale price</th>
+          <th class="c-date">Date</th>
+          <th class="c-buyer">Buyer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Запись 1: реальные данные с fragment.com -->
+        <tr>
+          <td class="c-sale"><span class="transferred">Transferred</span></td>
+          <td class="c-date date-cell">11 Apr 2025 at 12:26</td>
+          <td class="c-buyer">
+            <a class="addr-link" onclick="copyAddr('EQA2U1fWqfWFKPJfQULI_-b96-b1hlSXXx34Gh5xT3U7GTo4')">
+              7777.ton
+            </a>
+          </td>
+        </tr>
+        <!-- Запись 2 -->
+        <tr>
+          <td class="c-sale"><span class="transferred">Transferred</span></td>
+          <td class="c-date date-cell">19 Feb 2024 at 10:22</td>
+          <td class="c-buyer">
+            <a class="addr-link" onclick="copyAddr('EQANtyTiJuWgo5cTdrVlzpTzhYD3Heg3ssPoeAW2dM2v6imw')">
+              8080.ton
+            </a>
+          </td>
+        </tr>
+        <!-- Запись 3 -->
+        <tr>
+          <td class="c-sale">
+            <div class="price-cell">
+              <svg style="display:inline;vertical-align:middle" height="13" viewBox="0 0 15 19" width="13" xmlns="http://www.w3.org/2000/svg"><path d="m1.74 4.5h11.51c.24 0 .44.2.44.44 0 .08-.02.15-.05.22l-5.46 9.9c-.24.43-.78.59-1.21.35-.15-.08-.27-.21-.36-.36l-5.26-9.9c-.12-.21-.04-.48.18-.6.07-.03.14-.05.21-.05zm5.76 10.67v-10.67z" fill="none" stroke="#4db2ff" stroke-width="1.5"/></svg>
+              <span class="sold-price">1,250</span>
+            </div>
+          </td>
+          <td class="c-date date-cell">16 Dec 2022 at 12:54</td>
+          <td class="c-buyer">
+            <a class="addr-link" onclick="copyAddr('EQASZh2nFTkzyyV_SDscc1C0B3W4Uc6uizmVV0lPHbg0VsFW')">
+              UQASZh2n…Vg0VpyT
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer>
+  <a onclick="showToast('Top Auctions')">Top Auctions</a>
+  <a onclick="showToast('About')">About</a>
+  <a onclick="showToast('Terms')">Terms</a>
+  <a onclick="showToast('Privacy')">Privacy</a>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // TON icons replaced with inline SVGs
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  function handleAccept() {
+    const btn = document.querySelector('.buy-btn');
+    btn.textContent = 'Processing…';
+    btn.style.opacity = '0.65';
+    btn.disabled = true;
+    setTimeout(() => {
+      showToast('✅ Offer accepted!');
+      btn.textContent = 'Offer Accepted ✓';
+      btn.style.background = '#2ea05a';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+    }, 1400);
+  }
+
+  function copyAddr(addr) {
+    navigator.clipboard?.writeText(addr).catch(() => {});
+    showToast('Address copied!');
+  }
+</script>
+</body>
+</html>
